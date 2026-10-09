@@ -1,31 +1,25 @@
-new Swiper('.card-wrapper', {  
-  loop: true,  
-  speed: 700,  
-  spaceBetween: 30,  
+const swiper = new Swiper('.card-wrapper', {
+  loop: true,
+  speed: 700,
+  spaceBetween: 70,
+  slidesPerView: 1,
 
-  // If we need pagination  
-  pagination: {  
-    el: '.swiper-pagination',  
-    clickable: true,  
-    dynamicBullets: true,  
-  },  
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true,
+  },
 
-  // Navigation arrows  
-  navigation: {  
-    nextEl: '.swiper-button-next',  
-    prevEl: '.swiper-button-prev',  
-  },  
-  
-  breakpoints: { 
-    0: {  
-      slidesPerView: 1  
-    },  
-    768: {  
-      slidesPerView: 2  
-    },  
-    1024: {  
-      slidesPerView: 3  
-    },  
-  }  
-});  
-/* javascript */
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+document.querySelectorAll('[data-slide]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    swiper.slideToLoop(Number(link.dataset.slide));
+    document.querySelector('.card-wrapper').scrollIntoView({ behavior: 'smooth' });
+  });
+});
