@@ -4,5 +4,6 @@ document.querySelectorAll('.navbar .nav-link').forEach(link => {
     if (menu.classList.contains('show')) {
       bootstrap.Collapse.getOrCreateInstance(menu).hide();
     }
+    event.preventDefault
   });
 });
