@@ -10,25 +10,19 @@ document.querySelectorAll('.navbar .nav-link').forEach(link => {
 let myForm = document.querySelector("#myForm");
 
 myForm.addEventListener("submit", (event) => {
-	
-    // prevent default behavior of form
-	event.preventDefault();
 
-    // create variables for all items and convert type to numbers
-	let q1 = Number(this.q1.value);
-	let q2 = Number(this.q2.value);
+    event.preventDefault();
 
-	// Add all converted responses
-	let answer = q1 + q2;
+    let q1 = Number(myForm.q1.value);
+    let q2 = Number(myForm.q2.value);
 
-	// log
-	console.log(answer);
+    let answer = q1 + q2;
 
-	// store in a new input
-	this.answer.value = answer;
+    console.log(answer);
+
+    myForm.answer.value = answer;
 });
 
-// FOR TESTING VALUES
 document.querySelector(".test").addEventListener("click", function () {
 	// populate fields
 	for (let i = 1; i <= 2; i++) {
