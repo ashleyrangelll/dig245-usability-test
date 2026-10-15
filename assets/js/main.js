@@ -35,5 +35,5 @@ document.querySelector(".test").addEventListener("click", function () {
 		myForm[`q${i}`].value = Math.ceil(Math.random() * 5);
 	}
 	// submit the form
-	myForm.dispatchEvent(new Event("submit"));
+	myForm.dispatchEvent(new Event("submit", { cancelable: true }));
 });
